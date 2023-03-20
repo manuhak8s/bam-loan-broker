@@ -3,7 +3,7 @@
 ##########################################################
 
 # path to fileshare
-fshare_path = '../fshare/result.yaml'
+fshare_path = 'fshare/result.yaml'
 
 # dummy data for testing visualization on streamlit
 # gets written to the fileshare and read from the frontend
