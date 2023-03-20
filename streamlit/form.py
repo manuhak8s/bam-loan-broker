@@ -11,9 +11,6 @@
 import streamlit as st
 import requests, time, yaml, helper, sys
 
-# sidebar of the streamlit app
-st.sidebar.header("Your Results:")
-
 # formular of the streamlit app
 st.header("Welcome to the BAM Loan Broker")
 with st.form("lb_form"):
@@ -79,4 +76,11 @@ with st.form("lb_form"):
         print(read_data)
         # Sort YAML data based on keys
         sorted_data = yaml.dump(read_data)
+        # sidebar of the streamlit app
+        st.sidebar.header("Your Data:")
+        st.sidebar.write("Name: " + fname + " " + lname)
+        st.sidebar.write("SSN: " + ssn)
+        st.sidebar.write("Credit Amount: " + str(amount) + "€")
+        st.sidebar.write("Credit Term: " + str(term) + " months")
+        st.sidebar.header("Recommended Credit Offers:")
         st.sidebar.write(sorted_data)
