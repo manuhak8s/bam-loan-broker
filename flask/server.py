@@ -1,20 +1,23 @@
 ##########################################################
+# FLASK Server for REST-API and Proxy 
+
 # to run: FLASK_APP=server.py flask run
+
 # or python3 server.py
 ##########################################################
 
-import json, yaml
+import json, yaml, sys
 import requests
-import config
+import helper
 from flask import Flask, request
+
 app = Flask(__name__)
 
-# dummy result for testing
-dummy_result = {
-    'result': ['bank a', 'bank b', 'bank c']
-}
+##########################################################
+# API Routes
+##########################################################
 
-# main route (unecessary)
+# main route (unnecessary)
 @app.route("/")
 def main():
     return '<h1>BAM Loan Broker Proxy</h1>'
@@ -35,11 +38,11 @@ def get_result():
     req_data = request.get_json()
     print(req_data)
     # writes the result to a shared yaml file
-    with open('result.yaml', 'w') as outfile:
-       yaml.dump(dummy_result, outfile, default_flow_style=False)
+    with open(helper.fshare_path, 'w') as outfile:
+       yaml.dump(helper.dummy_result, outfile, default_flow_style=False)
 
     return {
-        'result': dummy_result
+        'result': helper.dummy_result
     }
 
 if __name__ == '__main__':
