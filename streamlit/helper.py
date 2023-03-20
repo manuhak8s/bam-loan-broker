@@ -18,3 +18,7 @@ def generate_ssn():
     chunk4 = random.randint(100, 999)
 
     return str(chunk1) + str(chunk2) + chunk3.upper() + str(chunk4)
+
+# clears the shared file for reading and visualizing the latest result
+def clear_fshare():
+    open(fshare_path, 'w').close()

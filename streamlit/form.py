@@ -51,6 +51,7 @@ with st.form("lb_form"):
        # request fireing
        else:
         st.write("fname", fname, "lname", lname, "amount", amount, "term", term)
+        helper.clear_fshare()
 
         # url of the Rest-API route - flask server
         apiURL = "http://127.0.0.1:5000/api/v1/formdata"
