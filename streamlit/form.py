@@ -9,24 +9,7 @@
 ##########################################################
 
 import streamlit as st
-import random, string, requests, time, os, yaml
-import config
-
-# shared result file for presentation rendering
-resultFilePath = 'result.yaml'
-open(resultFilePath, 'w').close()
-
-# generateSSN generates a social security number based on german syntax
-# (dd-dddddd-l-ddd)
-# each chunk gets generated seperatly 
-# the return value represents a concatination of all chunks
-def generateSSN():
-    chunk1 = random.randint(10,99)
-    chunk2 = random.randint(100000, 999999)
-    chunk3 = random.choice(string.ascii_letters)
-    chunk4 = random.randint(100, 999)
-
-    return str(chunk1) + str(chunk2) + chunk3.upper() + str(chunk4)
+import requests, time, yaml, helper, sys
 
 # sidebar of the streamlit app
 st.sidebar.header("Your Results:")
@@ -42,7 +25,7 @@ with st.form("lb_form"):
    lname = st.text_input("Lastname", max_chars=15)
    
    ## ssn - gets generated for easier testing
-   randomSSN = generateSSN()
+   randomSSN = helper.generate_ssn()
    ssn = st.text_input("Social Security Number", value=randomSSN, disabled=True)
 
    ## amount
@@ -89,7 +72,7 @@ with st.form("lb_form"):
 
         time.sleep(2)
         # Load YAML data from the file
-        with open(resultFilePath) as fh:
+        with open(helper.fshare_path) as fh:
             read_data = yaml.load(fh, Loader=yaml.FullLoader)
         # Print YAML data before sorting
         print(read_data)
