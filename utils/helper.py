@@ -1,11 +1,5 @@
-##########################################################
-# streamlit frontend helpers
-##########################################################
-
 import random, string
-
-# path to fileshare
-fshare_path = 'fshare/result.yaml'
+import configparser
 
 # generateSSN generates a social security number based on german syntax
 # (dd-dddddd-l-ddd)
@@ -19,6 +13,16 @@ def generate_ssn():
 
     return str(chunk1) + str(chunk2) + chunk3.upper() + str(chunk4)
 
-# clears the shared file for reading and visualizing the latest result
-def clear_fshare():
-    open(fshare_path, 'w').close()
+#Get the configparser object
+config_path = 'global.cfg'
+config = configparser.ConfigParser()
+config.read(config_path, encoding='utf-8')
+
+def get_group_username():
+    return config.get('groupdata', 'username')
+
+def get_group_password():
+    return config.get('groupdata', 'password')
+
+def get_group_interface_route():
+    return config.get('groupdata', 'interface_route')

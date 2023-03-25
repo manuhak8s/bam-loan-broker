@@ -1,0 +1,26 @@
+Schufa:
+- ssn | String
+- ratingLevel | char
+- delayInMilliseconds | long
+- username | String
+- password | String
+Response: { "score": 9924, "failureRiskInPercent": 0.77 }
+
+Synchrone Bank:
+- amountInEuros | int
+- termInMonths | int
+- ratingLevel | char
+- delayInMilliseconds | long
+- username | String
+- password | String
+Response: { "lendingRate": 3.5}
+
+Asynchrone Bank:
+- requestId | String
+- amountInEuros | int
+- termInMonths | int
+- ratingLevel | char
+- delayInMilliseconds | long
+- username | String
+- password | String
+Response: { "requestId": "123", "lendingRate": 3.5}
