@@ -129,5 +129,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# fileshare
-fshare/result.yaml
+# database
+data/users.db
