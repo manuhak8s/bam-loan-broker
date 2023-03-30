@@ -16,9 +16,9 @@ import yaml, time
 from yaml.loader import SafeLoader
 from utils import data_controller, helper, request_controller
 
-group_username = helper.get_group_username()
-group_password = helper.get_group_password()
-request_url = helper.get_group_interface_route()
+group_username: str = helper.get_group_username()
+group_password: str = helper.get_group_password()
+request_url: str = helper.get_group_interface_route()
 
 # formular of the streamlit app
 st.header("Welcome to the BAM Loan Broker")
@@ -27,30 +27,30 @@ with st.form("lb_form"):
 
     # form inputs
     ## forename and lastname
-    fname = st.text_input("Forename", max_chars=15)
-    lname = st.text_input("Lastname", max_chars=15)
+    fname: str = st.text_input("Forename", max_chars=15)
+    lname: str = st.text_input("Lastname", max_chars=15)
         
     ## ssn - gets generated for easier testing
-    randomSSN = helper.generate_ssn()
-    social_security_number = st.text_input("Social Security Number", value=randomSSN, disabled=True)
+    randomSSN: str = helper.generate_ssn()
+    social_security_number: str = st.text_input("Social Security Number", value=randomSSN, disabled=True)
 
-    rating_level = st.text_input("Rating Level", max_chars=1)
+    rating_level: str = st.text_input("Rating Level", max_chars=1)
 
-    delay_min_val = 0
-    delay_in_milliseconds = st.number_input("Delay in Milliseconds", min_value=delay_min_val, value=delay_min_val)
+    delay_min_val: int = 0
+    delay_in_milliseconds: int = st.number_input("Delay in Milliseconds", min_value=delay_min_val, value=delay_min_val)
         
     ## amount
-    amount_min_val = 1000
-    amount_count_step = 100
-    amount_in_euros = st.number_input('Desired Amount in €', min_value=amount_min_val, value=amount_min_val, step=amount_count_step)
+    amount_min_val: int = 1000
+    amount_count_step: int = 100
+    amount_in_euros: int = st.number_input('Desired Amount in €', min_value=amount_min_val, value=amount_min_val, step=amount_count_step)
 
         ## term 
-    term_min_val = 6
-    term_count_step = 1
-    term_in_months = st.number_input('Desired Term in Months', min_value=term_min_val, value=term_min_val, step=term_count_step)
+    term_min_val: int = 6
+    term_count_step: int = 1
+    term_in_months: int = st.number_input('Desired Term in Months', min_value=term_min_val, value=term_min_val, step=term_count_step)
 
     # Every form must have a submit button.
-    submitted = st.form_submit_button("Submit")
+    submitted: bool = st.form_submit_button("Submit")
     if submitted:
         # post validaiton
 
@@ -68,7 +68,7 @@ with st.form("lb_form"):
 
         time.sleep(2)
 
-        demo_result = {
+        demo_result: dict = {
             "Deutsche Bank": 3.6,
             "Commerzbank": 7.1,
             "Volksbank": 7.2
@@ -80,7 +80,7 @@ with st.form("lb_form"):
         st.sidebar.write("Desired Term: " + str(term_in_months) + ' months')
 
         st.sidebar.header("Recommended Credit Offers:")
-        rank_count = 0
+        rank_count: int = 0
         for bank, lending_rate in demo_result.items():
             rank_count = rank_count + 1
             if rank_count == 1:

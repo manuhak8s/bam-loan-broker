@@ -1,4 +1,4 @@
-import os, sys, sqlite3, uuid, time, random
+""" import os, sys, sqlite3, uuid, time, random
 from termcolor import colored
 
 db_filepath = 'data/users.db'
@@ -58,4 +58,4 @@ def recreate_database(path):
         init_user_db()
         print(colored('new database set up', 'green'))
     except:
-        print("dropping database failed")
+        print("dropping database failed") """

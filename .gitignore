@@ -131,3 +131,4 @@ dmypy.json
 
 # database
 data/users.db
+utils/data_controller.py
