@@ -9,13 +9,12 @@ The GUI is developed with Python-Streamlit as a single page application. The set
 
 **Step1:** Clone the repository
 
-**Step2:** Modify the **/global-cfg**-file and set the groupname, group password and mule esb interface
+**Step2:** Modify the **/global.cfg**-file and set the groupname, group password and mule esb interface
 
 **Step3:** Run your mule app if not done yet
 
-**Step4:** Run the streamlit app
+**Step4:** Run the streamlit app as described below
 
-After the serverside component started successfully run the streamlit component:
 ```bash
 # navigate to your project
 cd /location/to/your/cloned/project
