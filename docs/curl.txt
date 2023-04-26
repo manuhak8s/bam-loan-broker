@@ -1,0 +1,17 @@
+curl -X POST -d "social_security_number=13815211X823&rating_level=A&delay_in_milliseconds=1000&username=Gruppe01&password=lkhNqstcxs&"amount_in_euros"=50000&term_in_months=36" https://0.0.0.0:8081/api
+
+curl -H "Content-Type: application/json" -X GET -d '{"social_security_number": "13815211X823", "rating_level": "A", "delay_in_milliseconds": 1000, "username": "Gruppe01", "password": "lkhNqstcxs", "amount_in_euros": 50000, "term_in_months": 36}' 127.0.0.1:8081/api
+
+curl -H "Content-Type: application/json" -X GET -d '{"socialSecurityNumber": "13815211X823", "ratingLevel": "A", "delayInMilliseconds": 1000, "username": "Gruppe01", "password": "lkhNqstcxs"}' https://bambusinessintegration.wi.hs-furtwangen.de/schufa/ratings/score
+
+curl -X GET \ https://bambusinessintegration.wi.hs-furtwangen.de/schufa/ratings/score?socialSecurityNumber=13815211X823&ratingLevel=A&delayInMilliseconds=5000&username=Gruppe01&password=lkhNqstcxs \ -H 'accept:application/json'
+
+
+
+Correct:
+curl -X GET 'https://bambusinessintegration.wi.hs-furtwangen.de/schufa/ratings/score?socialSecurityNumber=13815211X823&ratingLevel=A&delayInMilliseconds=5000&username=Gruppe01&password=lkhNqstcxs' -H 'accept: application/json'
+
+curl -H "Content-Type: application/json" -X GET -d '{"social_security_number": "13815211X823", "rating_level": "A", "delay_in_milliseconds": 1000, "username": "Gruppe01", "password": "lkhNqstcxs", "amount_in_euros": 50000, "term_in_months": 36}' 127.0.0.1:8081/api
+
+
+

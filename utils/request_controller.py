@@ -1,4 +1,6 @@
 import requests
+import aiohttp
+import json
 
 # class of loanbroker request
 # conatains all necessary attributes for a request to the loanbroker
@@ -23,8 +25,15 @@ class Loan_Broker_Request:
 def translate_object_to_dict(object) -> dict:
     return object.__dict__
 
-# fire_loan_broker_request sends a request based on dict data to a target url
-# the return value is a response in json
-def fire_loan_broker_request(loan_broker_interface_route, request_dict):
-    response = requests.post(loan_broker_interface_route, json = request_dict)
-    return response.json()
+# sending a async post request during a http session based on aiohttp package
+# returning an awaiting json response
+async def send_request(url, data):
+    async with aiohttp.ClientSession() as session:
+        async with session.post(url, json=data) as response:
+            response_text = await response.text()
+            return json.loads(response_text)
+
+# calling send_request based on goven url and given request data
+async def async_main(url, data):
+    response_json = await send_request(url, data)
+    return response_json
