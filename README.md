@@ -1,33 +1,27 @@
 # bam-loan-broker-gui
+This repository is based on a master's degree business integration lesson. 
+The aim is to develop a loan broker ESB that communicates with different external systems.
+A GUI is necessary for testing the loan broker component and is referenced in this repository.
+The GUI is developed with Python-Streamlit as a single page application. The setup is described below.
 
-## Configure Interfaces to Loan Broker
-Coming soon ..
-
-## Running with Python
-The GUI contains two main components. **Please ensure that Python3, Flask and Streamlit are installed.**
-**Best case:** Open a commandline for each component
-It is recommended to start the FLASK-Server at first:
-```bash
-# navigate to your project
-cd /location/to/your/project/location
-
-# run 
-python3 flask/server.py 
-```
+## Setup - Configure Interfaces to Loan Broker
+**Please ensure that Python3 and Streamlit are installed.**
+**Step1:** Clone the repository
+**Step2:** Modify the **/global-cfg**-file and set the groupname, group password and mule esb interface
+**Step3:** Run your mule app if not done yet
+**Step4:** Run the streamlit app
 
 After the serverside component started successfully run the streamlit component:
 ```bash
 # navigate to your project
-cd /location/to/your/project/location
+cd /location/to/your/cloned/project
 
-# create a python env 
+# (createing a python env could be necessary only if streamlit is not installed on host)
 pipenv shell
 
 # run
 streamlit run streamlit/form.py
 ```
-
-**Trobleshooting:** In case of uninstalled modules, install them manually to the pipenv. 
 
 ## Running with Docker
 Coming soon ..
