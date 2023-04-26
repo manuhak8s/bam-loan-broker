@@ -4,7 +4,7 @@ The aim is to develop a loan broker ESB that communicates with different externa
 A GUI is necessary for testing the loan broker component and is referenced in this repository.
 The GUI is developed with Python-Streamlit as a single page application. The setup is described below.
 
-## Setup - Configure Interfaces to Loan Broker
+## Setup
 **Please ensure that Python3 and Streamlit are installed.**
 
 **Step1:** Clone the repository
